@@ -1,0 +1,44 @@
+{
+  "name": "ACall",
+  "type": "record",
+  "namespace": "com.orion.adapter.avro",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "callerNumber",
+      "type": "string"
+    },
+    {
+      "name": "calledNumber",
+      "type": "string"
+    },
+    {
+      "name": "engagementDialogId",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "string"
+    },
+    {
+      "name": "participant",
+      "type": {
+        "type": "record",
+        "name": "AParticipant",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

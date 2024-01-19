@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: schema-registry-deployment
+  labels:
+    app: schema-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: schema-registry
+  template:
+    metadata:
+      labels:
+        app: schema-registry
+    spec:
+      enableServiceLinks: false
+      containers:
+        - name: schema-registry
+          image: confluentinc/cp-schema-registry:7.1.0
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SCHEMA_REGISTRY_HOST_NAME
+              value: "schema-registry"
+            - name: SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS
+              value: 'kafka-service:9092'
+            - name: SCHEMA_REGISTRY_LISTENERS
+              value: 'http://0.0.0.0:8083'

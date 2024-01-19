@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "ACallId",
+  "namespace": "com.orion.adapter.avro",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    }
+  ]
+}

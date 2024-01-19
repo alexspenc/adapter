@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adapter
+  labels:
+    app: adapter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adapter
+  template:
+    metadata:
+      labels:
+        app: adapter
+    spec:
+      containers:
+        - name: adapter
+          image: adapter:2
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
